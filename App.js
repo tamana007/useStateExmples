@@ -1,4 +1,5 @@
 
+import { clear } from '@testing-library/user-event/dist/clear';
 import { useState } from 'react';
 import React from 'react';
 // import App from 'react';
@@ -19,20 +20,24 @@ import React from 'react';
 //   </>
 // )
 
+// function App(){
+
+//   const [people,setPeople]=useState('data');
+
+//   function changeme(){
+//     setPeople(['Ahmad','ali','samad'])
+//     console.log(people)
+//   }
+
+
+//   return(
+//     <div>{people}
+//     <button onClick={changeme}>click me</button></div>
+//   )
+// }
+
 function App(){
-
-  const [people,setPeople]=useState('data');
-
-  function changeme(){
-    setPeople(['Ahmad','ali','samad'])
-    console.log(people)
-  }
-
-
-  return(
-    <div>{people}
-    <button onClick={changeme}>click me</button></div>
-  )
+  
 }
 
 
