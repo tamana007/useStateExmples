@@ -221,36 +221,153 @@ import React from 'react';
 
 //................ cOUNTER VALUE INCREMENT DECREMENT RESET....................
 
-function App(){
+// function App(){
 
-  const[incV,setIncV]=useState(0)
+//   const[incV,setIncV]=useState(0)
 
-  function Increment(){
-    let increVal=incV+1;
-    setIncV(increVal)
-  }
-  function decrement(){
-    if(incV>0){
-    let decreVal=incV-1;
-    setIncV(decreVal)
-    }
+//   function Increment(){
+//     let increVal=incV+1;
+//     setIncV(increVal)
+//   }
+//   function decrement(){
+//     if(incV>0){
+//     let decreVal=incV-1;
+//     setIncV(decreVal)
+//     }
     
    
+//   }
+//   function reset(){
+//     let resetVal=0;
+//     setIncV(resetVal)
+//   }
+
+//   return(
+//     <>
+//     <h1>{incV}</h1>
+//     <button name='btn' onClick={Increment}>Increment</button>
+//     <button onClick={decrement}>Decrement</button>
+//     <button onClick={reset}>Reset</button>
+//     </>
+//   )
+// }
+//---------------------------------------------------------------------------------------
+
+function App(){
+
+  const[fInput,sFinput]=useState('');
+  function addFinput(e){
+    sFinput(e.target.value)
+
   }
-  function reset(){
-    let resetVal=0;
-    setIncV(resetVal)
+  const[pinput,sPinput]=useState('');
+  function addSinput(s){
+    sPinput(s.target.value)
+
   }
+  const[items,setItems]=useState([{}]);
+  function addItems(e){
+    e.preventDefault();
+    // const nItems={Description:fInput, Amout: sPinput}
+    
+    // setItems([...items,nItems])
+    // sPinput('');
+    // sFinput('');
+
+    const nItems = { description: fInput, amount: sPinput };
+setItems([...items, nItems]);
+sPinput(''); // Clear the 'pInput' state
+sFinput(''); // Clear the 'fInput' stat
+  }
+
 
   return(
     <>
-    <h1>{incV}</h1>
-    <button name='btn' onClick={Increment}>Increment</button>
-    <button onClick={decrement}>Decrement</button>
-    <button onClick={reset}>Reset</button>
+    {/* <form onSubmit={addItems}>
+    <input value={fInput} onChange={addFinput}></input>
+    <input onChange={addSinput} value={pinput}></input>
+    <button type='submit'>Add Expense</button>
+    </form> */}
+
+
+    <form onSubmit={addItems}>
+        <input
+          value={fInput}
+          onChange={addFinput}
+          placeholder="Description"
+        />
+        <input
+          value={pinput}
+          onChange={addSinput}
+          placeholder="Amount"
+        />
+        <button type="submit">Add Expense</button>
+      </form>
+
+    
+    {/* <ul>
+      {items.map((m,index)=>
+        <li key={index}>{m}</li>
+      )}
+    </ul> */}
+     <ul>
+        {items.map((item, index) => (
+          <li key={index}>
+            Description: {item.description}, Amount: {item.amount}
+          </li>
+        ))}
+      </ul>
+    
     </>
   )
 }
+// function App() {
+//   const [fInput, setFInput] = useState('');
+//   const [pInput, setPInput] = useState('');
+//   const [items, setItems] = useState([]);
+
+//   function addFInput(e) {
+//     setFInput(e.target.value);
+//   }
+
+//   function addPInput(e) {
+//     setPInput(e.target.value);
+//   }
+
+//   function addItems(e) {
+//     e.preventDefault();
+//     const nItems = { description: fInput, amount: pInput };
+//     setItems([...items, nItems]);
+//     setPInput(''); // Clear the 'pInput' state
+//     setFInput(''); // Clear the 'fInput' state
+//   }
+
+//   return (
+//     <>
+//       <form onSubmit={addItems}>
+//         <input
+//           value={fInput}
+//           onChange={addFInput}
+//           placeholder="Description"
+//         />
+//         <input
+//           value={pInput}
+//           onChange={addPInput}
+//           placeholder="Amount"
+//         />
+//         <button type="submit">Add Expense</button>
+//       </form>
+
+//       <ul>
+//         {items.map((item, index) => (
+//           <li key={index}>
+//             Description: {item.description}, Amount: {item.amount}
+//           </li>
+//         ))}
+//       </ul>
+//     </>
+//   );
+// }
 
 
 export default App;
