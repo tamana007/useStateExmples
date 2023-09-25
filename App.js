@@ -142,43 +142,43 @@ import React from 'react';
 
 //,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Correct.......................
 
-function App(){
+// function App(){
 
-  const[task,setTask]=useState('inputtask')
+//   const[task,setTask]=useState('inputtask')
 
-function inputFunc(e){
-  setTask(e.target.value)
-}
-const [taskList,setTaskList]=useState([])
+// function inputFunc(e){
+//   setTask(e.target.value)
+// }
+// const [taskList,setTaskList]=useState([])
 
-function submitVal(e){
-  e.preventDefault();
-  setTaskList([...taskList,task])
-}
-  return(
-    <>
-    <form onSubmit={submitVal}>
-      <input value={task} onChange={inputFunc}></input>
-      <button type='submit'>submit</button>
-    </form>
-    <ul>
-      {
-      taskList.map((item,index)=>(
-        <li key={index}>{item}</li>)
+// function submitVal(e){
+//   e.preventDefault();
+//   setTaskList([...taskList,task])
+// }
+//   return(
+//     <>
+//     <form onSubmit={submitVal}>
+//       <input value={task} onChange={inputFunc}></input>
+//       <button type='submit'>submit</button>
+//     </form>
+//     <ul>
+//       {
+//       taskList.map((item,index)=>(
+//         <li key={index}>{item}</li>)
 
-      )
-      }
-    </ul>
-    {/* <ul>
-        {taskList.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul> */}
+//       )
+//       }
+//     </ul>
+//     {/* <ul>
+//         {taskList.map((item, index) => (
+//           <li key={index}>{item}</li>
+//         ))}
+//       </ul> */}
     
-    </>
-  );
+//     </>
+//   );
   
-}
+// }
 
 
 
@@ -217,6 +217,40 @@ function submitVal(e){
 //     </>
 //   );
 // }
+
+
+//................ cOUNTER VALUE INCREMENT DECREMENT RESET....................
+
+function App(){
+
+  const[incV,setIncV]=useState(0)
+
+  function Increment(){
+    let increVal=incV+1;
+    setIncV(increVal)
+  }
+  function decrement(){
+    if(incV>0){
+    let decreVal=incV-1;
+    setIncV(decreVal)
+    }
+    
+   
+  }
+  function reset(){
+    let resetVal=0;
+    setIncV(resetVal)
+  }
+
+  return(
+    <>
+    <h1>{incV}</h1>
+    <button name='btn' onClick={Increment}>Increment</button>
+    <button onClick={decrement}>Decrement</button>
+    <button onClick={reset}>Reset</button>
+    </>
+  )
+}
 
 
 export default App;
