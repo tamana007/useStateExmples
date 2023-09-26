@@ -50,27 +50,58 @@ import { useEffect, useState } from "react";
 
 
 // }
+//::::::::::::::::::::::::::::::::::::::::::::UseEffect Usage::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+// function App(){
+//   const[value,setValue]=useState(0);
+//   function sayHello(){
+//     // setValue()
+//     console.log('hello there');
+//   }
+//   function btnFunc(){
+//     setValue((value)=>value+1)
+//   }
+//   sayHello();
+
+//   useEffect(()=>{
+//     console.log('hello from useEffect')
+//   },[])
+
+//   return(
+//     <>
+//     <h1>{value}</h1>
+//     <button onClick={btnFunc}>click here</button>
+//     </>
+//   )
+// }
+
 function App(){
-  const[value,setValue]=useState(0);
-  function sayHello(){
-    // setValue()
-    console.log('hello there');
-  }
-  function btnFunc(){
-    setValue((value)=>value+1)
-  }
-  sayHello();
+
+  const [user,setUser]=useState([]);
 
   useEffect(()=>{
-    console.log('hello from useEffect')
-  },[])
+    const fetchFunc=async()=>{
+      const response=await fetch('url');
+      const user=await response.json();
+      setUser(user);
 
-  return(
-    <>
-    <h1>{value}</h1>
-    <button onClick={btnFunc}>click here</button>
-    </>
-  )
+    }
+    fetchFunc();
+  },[user])
+return(
+  <>
+  <ul>
+    {user.map((item)=>{
+      return(
+        <li>{item}</li>
+      )
+    })}
+  </ul>
+  </>
+)
+
 }
 
 export default App;
