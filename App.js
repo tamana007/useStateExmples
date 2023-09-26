@@ -253,74 +253,75 @@ import React from 'react';
 // }
 //---------------------------------------------------------------------------------------
 
-function App(){
+// function App(){
 
-  const[fInput,sFinput]=useState('');
-  function addFinput(e){
-    sFinput(e.target.value)
+//   const[fInput,sFinput]=useState('');
+//   function addFinput(e){
+//     sFinput(e.target.value)
 
-  }
-  const[pinput,sPinput]=useState('');
-  function addSinput(s){
-    sPinput(s.target.value)
+//   }
+//   const[pinput,sPinput]=useState('');
+//   function addSinput(s){
+//     sPinput(s.target.value)
 
-  }
-  const[items,setItems]=useState([{}]);
-  function addItems(e){
-    e.preventDefault();
-    // const nItems={Description:fInput, Amout: sPinput}
+//   }
+//   const[items,setItems]=useState([{}]);
+//   function addItems(e){
+//     e.preventDefault();
+//     // const nItems={Description:fInput, Amout: sPinput}
     
-    // setItems([...items,nItems])
-    // sPinput('');
-    // sFinput('');
+//     // setItems([...items,nItems])
+//     // sPinput('');
+//     // sFinput('');
 
-    const nItems = { description: fInput, amount: sPinput };
-setItems([...items, nItems]);
-sPinput(''); // Clear the 'pInput' state
-sFinput(''); // Clear the 'fInput' stat
-  }
-
-
-  return(
-    <>
-    {/* <form onSubmit={addItems}>
-    <input value={fInput} onChange={addFinput}></input>
-    <input onChange={addSinput} value={pinput}></input>
-    <button type='submit'>Add Expense</button>
-    </form> */}
+//     const nItems = { description: fInput, amount: sPinput };
+// setItems([...items, nItems]);
+// sPinput(''); // Clear the 'pInput' state
+// sFinput(''); // Clear the 'fInput' stat
+//   }
 
 
-    <form onSubmit={addItems}>
-        <input
-          value={fInput}
-          onChange={addFinput}
-          placeholder="Description"
-        />
-        <input
-          value={pinput}
-          onChange={addSinput}
-          placeholder="Amount"
-        />
-        <button type="submit">Add Expense</button>
-      </form>
+//   return(
+//     <>
+//     <toggleSwitch></toggleSwitch>
+//     {/* <form onSubmit={addItems}>
+//     <input value={fInput} onChange={addFinput}></input>
+//     <input onChange={addSinput} value={pinput}></input>
+//     <button type='submit'>Add Expense</button>
+//     </form> */}
+
+
+//     <form onSubmit={addItems}>
+//         <input
+//           value={fInput}
+//           onChange={addFinput}
+//           placeholder="Description"
+//         />
+//         <input
+//           value={pinput}
+//           onChange={addSinput}
+//           placeholder="Amount"
+//         />
+//         <button type="submit">Add Expense</button>
+//       </form>
 
     
-    {/* <ul>
-      {items.map((m,index)=>
-        <li key={index}>{m}</li>
-      )}
-    </ul> */}
-     <ul>
-        {items.map((item, index) => (
-          <li key={index}>
-            Description: {item.description}, Amount: {item.amount}
-          </li>
-        ))}
-      </ul>
+//     {/* <ul>
+//       {items.map((m,index)=>
+//         <li key={index}>{m}</li>
+//       )}
+//     </ul> */}
+//      <ul>
+//         {items.map((item, index) => (
+//           <li key={index}>
+//             Description: {item.description}, Amount: {item.amount}
+//           </li>
+//         ))}
+//       </ul>
     
-    </>
-  )
-}
+//     </>
+//   )
+// }
 // function App() {
 //   const [fInput, setFInput] = useState('');
 //   const [pInput, setPInput] = useState('');
@@ -369,5 +370,21 @@ sFinput(''); // Clear the 'fInput' stat
 //   );
 // }
 
+function App() {
+  const [isOn, setIsOn] = useState(false);
+
+  // Event handler for toggling the switch state
+  const toggleSwitch = () => {
+    setIsOn(!isOn);
+  };
+
+  return (
+    <div>
+      <h2>Toggle Switch</h2>
+      <button onClick={toggleSwitch}>Toggle</button>
+      <p>State: {isOn ? 'On' : 'Off'}</p>
+    </div>
+  );
+}
 
 export default App;
