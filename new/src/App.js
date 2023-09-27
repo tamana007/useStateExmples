@@ -77,29 +77,59 @@ import { useEffect, useState } from "react";
 //   )
 // }
 
+// function App(){
+
+//   const [user,setUser]=useState([]);
+
+//   useEffect(()=>{
+//     const fetchFunc=async()=>{
+//       const response=await fetch('url');
+//       const user=await response.json();
+//       setUser(user);
+
+//     }
+//     fetchFunc();
+//   },[user])
+// return(
+//   <>
+//   <ul>
+//     {user.map((item)=>{
+//       return(
+//         <li>{item}</li>
+//       )
+//     })}
+//   </ul>
+//   </>
+// )
+
+// }
+// function RandomNumber(){
+//   const [number,setNumber]=useState(1);
+
+//   useEffect(()=>{
+//     let result=function randFunc(){Math.floor(Math.random()*99);
+//     }
+//     result();
+//     setNumber(result)
+
+//   },[number])
+// }
 function App(){
 
-  const [user,setUser]=useState([]);
+  const [user,setUser]=useState('d ');
+  const [name,setName]=useState(" ");
 
-  useEffect(()=>{
-    const fetchFunc=async()=>{
-      const response=await fetch('url');
-      const user=await response.json();
-      setUser(user);
+  // useEffect(()=>{
+  //   const data=function funcName(){
+  //     // const response=await fetch('url')
+  //     console.log('taken');
+  //   }
+  //   data();
+  //   setUser(data);
+  // },[])
 
-    }
-    fetchFunc();
-  },[user])
 return(
-  <>
-  <ul>
-    {user.map((item)=>{
-      return(
-        <li>{item}</li>
-      )
-    })}
-  </ul>
-  </>
+  <div>{user && "hello"}</div>
 )
 
 }
