@@ -114,47 +114,85 @@ import { useEffect, useState } from "react";
 
 //   },[number])
 // }
-function App(){
+// function App(){
 
-//   const [user,setUser]=useState('d ');
-//   const [name,setName]=useState(" ");
+// //   const [user,setUser]=useState('d ');
+// //   const [name,setName]=useState(" ");
 
-//   // useEffect(()=>{
-//   //   const data=function funcName(){
-//   //     // const response=await fetch('url')
-//   //     console.log('taken');
-//   //   }
-//   //   data();
-//   //   setUser(data);
-//   // },[])
+// //   // useEffect(()=>{
+// //   //   const data=function funcName(){
+// //   //     // const response=await fetch('url')
+// //   //     console.log('taken');
+// //   //   }
+// //   //   data();
+// //   //   setUser(data);
+// //   // },[])
 
-// return(
-//   <div>{user && "hello"}</div>
-// )
+// // return(
+// //   <div>{user && "hello"}</div>
+// // )
 
-const[name,setName]=useState(true);
-// function checState(){
-  // function set(){
-  //   setName('False');
-  // }
+// const[name,setName]=useState(true);
+// // function checState(){
+//   // function set(){
+//   //   setName('False');
+//   // }
 
   
-  return(
-    <>
-    <div>
-      <button style={{color:'green', fontSize:'2rem'}} onClick={()=>{setName(!name)}} type="button">click me</button>
-      {/* {name? name:<Newcomp/>} */}
-      {name?<Alert></Alert>:"Not true"}
-    </div>
-    </>
-  )
-};
+//   return(
+//     <>
+//     <div>
+//       <button style={{color:'green', fontSize:'2rem'}} onClick={()=>{setName(!name)}} type="button">click me</button>
+//       {/* {name? name:<Newcomp/>} */}
+//       {name?<Alert></Alert>:"Not true"}
+//     </div>
+//     </>
+//   )
+// };
 
-const Alert=()=>{
-  return(
-    <div style={{backgroun:'red'}}>"Hello dear</div>
-  )
-}
+// const Alert=()=>{
+//   return(
+//     <div style={{backgroun:'red'}}>"Hello dear</div>
+//   )
 // }
+// }
+//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::Login and Logout::::::::::::::::::::::::::::::
+
+function App(){
+  const [user,setUser]=useState(null);
+
+  function login(){
+    setUser({Name:'ali'});
+}
+  function logout(){
+    setUser({});
+  }
+
+//   return(
+  
+//   <div>
+//     {user ? (
+//     <div> 
+//       <h4>hello {user.Name}</h4>
+//     <button onClick={logout}>Logout</button>
+    
+//     <div/>
+//     )
+//     : (
+//       <div> 
+//         <h4>hplease Login {user.Name}</h4>
+//     <button onClick={login}>Login</button>
+//   </div>
+// )}
+// </div>
+return(
+  <>
+  {user?<div>hi {user.Name}
+  <button onClick={logout}>logout</button></div>
+  :<div>hello <button onClick={login}>login</button></div>}
+  </>
+)
+    
+  }
 
 export default App;
