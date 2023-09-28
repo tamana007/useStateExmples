@@ -116,22 +116,45 @@ import { useEffect, useState } from "react";
 // }
 function App(){
 
-  const [user,setUser]=useState('d ');
-  const [name,setName]=useState(" ");
+//   const [user,setUser]=useState('d ');
+//   const [name,setName]=useState(" ");
 
-  // useEffect(()=>{
-  //   const data=function funcName(){
-  //     // const response=await fetch('url')
-  //     console.log('taken');
-  //   }
-  //   data();
-  //   setUser(data);
-  // },[])
+//   // useEffect(()=>{
+//   //   const data=function funcName(){
+//   //     // const response=await fetch('url')
+//   //     console.log('taken');
+//   //   }
+//   //   data();
+//   //   setUser(data);
+//   // },[])
 
-return(
-  <div>{user && "hello"}</div>
-)
+// return(
+//   <div>{user && "hello"}</div>
+// )
 
+const[name,setName]=useState(true);
+// function checState(){
+  // function set(){
+  //   setName('False');
+  // }
+
+  
+  return(
+    <>
+    <div>
+      <button style={{color:'green', fontSize:'2rem'}} onClick={()=>{setName(!name)}} type="button">click me</button>
+      {/* {name? name:<Newcomp/>} */}
+      {name?<Alert></Alert>:"Not true"}
+    </div>
+    </>
+  )
+};
+
+const Alert=()=>{
+  return(
+    <div style={{backgroun:'red'}}>"Hello dear</div>
+  )
 }
+// }
 
 export default App;
